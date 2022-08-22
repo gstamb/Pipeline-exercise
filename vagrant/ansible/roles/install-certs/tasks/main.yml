@@ -1,0 +1,6 @@
+--- 
+   - name: install ca-certificates
+     command: yum install -y ca-certificates
+     
+   - name: ca-certificates update command line execution
+     command: /bin/update-ca-trust

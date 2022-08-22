@@ -4,7 +4,9 @@
   vars:
     jenkins_hostname: jenkins.sulab.local
   roles:
+    - install-certs
     - add-hosts
     - firewall-8080
     - git
+    - { role: geerlingguy.java, when: "ansible_os_family == 'RedHat'", java_packages: java-11-openjdk }
     - geerlingguy.jenkins
