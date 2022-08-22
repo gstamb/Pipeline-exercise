@@ -1,0 +1,44 @@
+---
+  - name: Install NAGIOS
+    yum:
+      name=nagios,nagios-plugins-all,nagios-plugins-nrpe,python-passlib
+      state=present  
+  - name: Set password for nagiosadmin
+    htpasswd:
+      path: /etc/nagios/passwd
+      name: nagiosadmin
+      password: 'Password1'
+  - name: Copy some nice logos
+    copy: 
+      src={{ item }} 
+      dest=/usr/share/nagios/html/images/logos/
+    with_fileglob:
+      - /vagrant/files/logos/*.png      
+  - name: Copy additional docker plugin
+    copy:
+      src=/vagrant/files/check_docker_container.sh
+      dest=/usr/lib64/nagios/plugins/check_docker_container.sh
+  - name: Turn on execute permission for check_docker_container.sh
+    file:
+      path=/usr/lib64/nagios/plugins/check_docker_container.sh
+      mode="a+x"
+  - name: Copy localhost.cfg file
+    copy:
+      src=/vagrant/files/cfg/localhost.cfg
+      dest=/etc/nagios/objects/localhost.cfg
+  - name: Copy additional configuration files
+    copy: 
+      src={{ item }} 
+      dest=/etc/nagios/conf.d/
+    with_fileglob:
+      - /vagrant/files/custom/*.cfg     
+  - name: Enable and start NAGIOS
+    service:
+      name=nagios
+      state=started
+      enabled=true
+  - name: Enable and start HTTP
+    service:
+      name=httpd
+      state=started
+      enabled=true

@@ -1,0 +1,17 @@
+---
+  - name: Add ansible host
+    lineinfile:
+      path: /etc/hosts
+      line: '192.168.99.100 ansible.sulab.local ansible'
+  - name: Add jenkins host
+    lineinfile:
+      path: /etc/hosts
+      line: '192.168.99.101 jenkins.sulab.local jenkins'
+  - name: Add nagios host
+    lineinfile:
+      path: /etc/hosts
+      line: '192.168.99.102 nagios.sulab.local nagios'
+  - name: Add docker host
+    lineinfile:
+      path: /etc/hosts
+      line: '192.168.99.103 docker.sulab.local docker'
