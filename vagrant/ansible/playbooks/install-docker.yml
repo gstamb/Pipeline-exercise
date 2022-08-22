@@ -7,7 +7,7 @@
     - firewall-http
     - firewall-nrpe
     - git
-    - geerlingguy.java
+    - { role: geerlingguy.java,when: "ansible_os_family == 'RedHat'", java_packages: java-11-openjdk }
     - geerlingguy.docker
     - nrpe
     - dob-network

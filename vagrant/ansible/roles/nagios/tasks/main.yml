@@ -22,10 +22,10 @@
     file:
       path=/usr/lib64/nagios/plugins/check_docker_container.sh
       mode="a+x"
-  - name: Copy localhost.cfg file
+  - name: Copy nagios.cfg file
     copy:
-      src=/vagrant/files/cfg/localhost.cfg
-      dest=/etc/nagios/objects/localhost.cfg
+      src=/vagrant/files/cfg/nagios.cfg
+      dest=/etc/nagios/nagios.cfg
   - name: Copy additional configuration files
     copy: 
       src={{ item }} 
