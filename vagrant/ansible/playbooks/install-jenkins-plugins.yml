@@ -59,7 +59,9 @@
     - name: Wait for Jenkins to start up
       uri:
         url: http://localhost:8080
-        status_code: 200
+        status_code: 
+          - 200
+          - 403
         timeout: 5
       register: jenkins_service_status
       # Keep trying for 5 mins in 5 sec intervals
@@ -67,7 +69,8 @@
       delay: 5
       until: >
          'status' in jenkins_service_status and
-         jenkins_service_status['status'] == 200
+         jenkins_service_status['status'] == 200 or 'status' in jenkins_service_status and
+         jenkins_service_status['status'] == 403
       when: jenkins_restart_required
 
     - name: Reset the fact
