@@ -1,4 +1,1 @@
-![image description](https://raw.githubusercontent.com/gstamb/exercise-repo/master/pratice.JPG)
-![Optional Text](C:\Users\gstam\OneDrive\Desktop\pratice.JPG)
-![Alt text](C:\Users\gstam\OneDrive\Desktop\pratice.JPG?raw=true "Pratice")
-
+![pratice](https://user-images.githubusercontent.com/33317612/185956786-9df72bc0-01aa-479e-99c1-f8e1cda54a22.JPG)
