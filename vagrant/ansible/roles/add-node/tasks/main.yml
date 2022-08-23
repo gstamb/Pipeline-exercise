@@ -1,3 +1,5 @@
 ---
+  - name: Ensure script is runnable
+    command: sed -i -e 's/\r$//' /vagrant/jenkins-add-node.sh
   - name: Add Jenkins slave node
     command: /vagrant/jenkins-add-node.sh http://localhost:8080/ docker.sulab.local vagrant

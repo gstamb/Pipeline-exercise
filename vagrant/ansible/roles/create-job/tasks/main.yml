@@ -1,3 +1,5 @@
 ---
+  - name: Ensure script is runnable
+    command: sed -i -e 's/\r$//' /vagrant/jenkins-create-job.sh
   - name: Create Jenkins job
     command: /vagrant/jenkins-create-job.sh

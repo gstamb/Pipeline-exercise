@@ -1,3 +1,5 @@
 ---
+  - name: Ensure script is runnable
+    command: sed -i -e 's/\r$//' /vagrant/jenkins-add-credentials.sh
   - name: Add Jenkins credentials
     command: /vagrant/jenkins-add-credentials.sh

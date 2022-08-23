@@ -7,7 +7,7 @@
     htpasswd:
       path: /etc/nagios/passwd
       name: nagiosadmin
-      password: 'Password1'
+      password: 'admin'
   - name: Copy some nice logos
     copy: 
       src={{ item }} 

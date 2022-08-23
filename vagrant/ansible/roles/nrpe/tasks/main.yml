@@ -7,14 +7,10 @@
     copy:
       src=/vagrant/files/nrpe.cfg
       dest=/etc/nagios/nrpe.cfg
-  - name: Add nrpe to sudoers.d
-    copy:
-      src=/vagrant/files/nrpe.sudo
-      dest=/etc/sudoers.d/nrpe
-  - name: Add nagios to sudoers.d
-    copy:
-      src=/vagrant/files/nagios.sudo
-      dest=/etc/sudoers.d/nagios
+  - name: Add nrpe to sudoers
+    command: echo "nrpe  ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
+  - name: Add nagios to sudoers
+    command: echo "nagios  ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
   - name: Adding user vagrant to docker group  
     user: name=vagrant
       groups=docker
